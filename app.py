@@ -3,8 +3,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-	# 初始版本，固定返回 “Hello, World!”
-	return "Hello, World!"
+	name = request.args.get('name', 'World') # 获取name参数，默认为‘World’
+	return f"Hello, {name}!"
 
 if __name__ == '__main__':
 	app.run(debug=True)
