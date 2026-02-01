@@ -1,0 +1,19 @@
+name: Continuous Delivery (CD)
+
+on:
+  push:
+    branches: [ "main" ] # 仅当代码推送到主分支时触发“部署”
+
+jobs:
+  simulate-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Simulate Deployment
+        # 此处模拟部署步骤，例如：打包、上传、通知等。
+        run: |
+          echo "✅ 模拟部署开始..."
+          echo "1. 打包应用..."
+          echo "2. 将包上传至模拟的服务器目录..."
+          echo "3. 重启模拟的服务..."
+          echo "🚀 应用（版本 $(git rev-parse --short HEAD)）已成功‘部署’到测试环境！"
